@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { cn } from '@/lib/utils';
 
 // Magic UI Components
 import { RetroGrid } from '@/components/magicui/retro-grid';
@@ -15,11 +14,10 @@ import { Ripple } from '@/components/magicui/ripple'; // For background effect
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 // Animation Variants
-import { fadeIn, scale, staggerContainer, simpleFadeIn, textMaskReveal } from '@/lib/animations';
-import { ArrowRightIcon, CheckIcon } from '@radix-ui/react-icons'; // Icons
+import { fadeIn, scale, staggerContainer, simpleFadeIn } from '@/lib/animations';
+import { ArrowRightIcon } from '@radix-ui/react-icons'; // Icons
 
 // --- FAQ Data ---
 const faqData = [

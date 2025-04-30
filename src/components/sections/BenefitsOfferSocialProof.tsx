@@ -4,12 +4,10 @@ import { motion } from 'motion/react';
 import { cn } from '@/lib/utils';
 import { BentoCard, BentoGrid } from '@/components/magicui/bento-grid';
 import { NumberTicker } from '@/components/magicui/number-ticker';
-import { TextReveal } from '@/components/magicui/text-reveal';
-import { AnimatedShinyText } from '@/components/magicui/animated-shiny-text';
 import { ArrowRightIcon } from '@radix-ui/react-icons';
 import  HeroVideoDialog  from "@/components/magicui/hero-video-dialog";
 import { Marquee } from "@/components/magicui/marquee";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"; // Shadcn card for structure
+import { Card, CardContent,  CardHeader, CardTitle } from "@/components/ui/card"; // Shadcn card for structure
 import { RippleButton } from '@/components/magicui/ripple-button'; // Using Magic UI Button
 import { Particles } from "@/components/magicui/particles"; // Background effect
 import { fadeIn, scale, staggerContainer, simpleFadeIn, textMaskReveal } from '@/lib/animations';
@@ -29,7 +27,7 @@ const SecureBenefitIcon = () => ( // Fetched Security Shield Icon
 );
 
 const GrowthBenefitIcon = () => ( // Fetched Growth Chart Icon
-    <svg width="40px" height="40px" viewBox="0 0 9.2 9.2" style={{ shapeRendering: 'geometricPrecision', textRendering: 'geometricPrecision', imageRendering: 'optimizeQuality', fillRule: 'evenodd', clipRule: 'evenodd' }} xmlns="http://www.w3.org/2000/svg" className="text-secondary group-hover:scale-110 transition-transform duration-300">
+    <svg width="40px" height="40px" viewBox="0 0 9.2 9.2" style={{ shapeRendering: 'geometricPrecision', textRendering: 'geometricPrecision',  fillRule: 'evenodd', clipRule: 'evenodd' }} xmlns="http://www.w3.org/2000/svg" className="text-secondary group-hover:scale-110 transition-transform duration-300">
         <defs>
             <style type="text/css">{`.fil0 {fill:none} .fil1 {fill:hsl(var(--foreground)/.8);fill-rule:nonzero} .fil2 {fill:currentColor;fill-rule:nonzero} .fil3 {fill:currentColor}`}</style>
         </defs>

@@ -32,7 +32,7 @@ export const fadeIn = (
         },
         show: {
             opacity: 1,
-            [axis]: finalValue,
+            ...(axis === 'y' ? { y: finalValue } : { x: finalValue }), // Explicitly set x or y
             transition: {
                 duration,
                 delay,
@@ -41,10 +41,10 @@ export const fadeIn = (
                 ...(delayChildren && { delayChildren }),
             },
         },
-        exit: { // Optional exit animation
-             opacity: 0,
-             [axis]: initialValue,
-             transition: {
+        exit: {
+            opacity: 0,
+            ...(axis === 'y' ? { y: initialValue } : { x: initialValue }), // Explicitly set x or y
+            transition: {
                 duration: duration * 0.8, // Faster exit
                 ease: defaultEasing,
             },

@@ -1,5 +1,3 @@
-
-import React from 'react';
 import Layout from '@/components/layout/Layout';
 import Header from '@/components/layout/Header';
 import HeroSection from '@/components/sections/HeroSection';
@@ -8,14 +6,6 @@ import BenefitsOfferSocialProof from '@/components/sections/BenefitsOfferSocialP
 import ConversionSections from '@/components/sections/ConversionSections';
 import Footer from '@/components/layout/Footer'; // Import the new Footer
 import { cn } from '@/lib/utils';
-
-// Placeholder section component remains the same
-const PlaceholderSection: React.FC<{ id: string; title: string; className?: string }> = ({ id, title, className }) => (
-    <section id={id} className={cn("min-h-[60vh] flex items-center justify-center border-t border-border/20", className)}>
-        <h2 className="text-4xl font-bold text-muted-foreground/50">{title}</h2>
-    </section>
-);
-
 
 function App() {
   return (

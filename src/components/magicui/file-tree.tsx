@@ -225,7 +225,7 @@ const Folder = forwardRef<
       children,
       ...props
     },
-    ref,
+    
   ) => {
     const {
       direction,

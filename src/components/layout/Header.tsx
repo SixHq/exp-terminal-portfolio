@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { cn } from '@/lib/utils';
 import { Dock, DockIcon } from "@/components/magicui/dock";
 import { ShimmerButton } from '@/components/magicui/shimmer-button'; // Using Magic UI Button
 import { Button } from "@/components/ui/button"; // Fallback for mobile menu trigger

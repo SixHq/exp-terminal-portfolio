@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { cn } from '@/lib/utils';
 import { Globe } from '@/components/magicui/globe'; // Visually engaging element
 import { AnimatedGradientText } from '@/components/magicui/animated-gradient-text'; // For headline
 import { TextReveal } from '@/components/magicui/text-reveal'; // For subheadline

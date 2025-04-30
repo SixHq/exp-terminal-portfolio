@@ -11,6 +11,7 @@ export const useScrollAnimation = (options: ScrollAnimationOptions = { once: tru
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, {
     once: options.once,
+    // @ts-expect-error TODO: Investigate framer-motion MarginType issue
     margin: options.margin,
   });
 
@@ -26,12 +27,11 @@ export const useScrollAnimation = (options: ScrollAnimationOptions = { once: tru
     },
   };
 
-  const getAnimationProps = (customVariants?: Variants, delay: number = 0) => ({
+  const getAnimationProps = (customVariants?: Variants) => ({
     ref,
     initial: "hidden",
     animate: isInView ? "visible" : "hidden",
     variants: customVariants || defaultVariants,
-    transition: { delay: delay * 0.1, ...(customVariants?.visible as any)?.transition }, // Stagger delay slightly
   });
 
   return { ref, isInView, getAnimationProps, defaultVariants };

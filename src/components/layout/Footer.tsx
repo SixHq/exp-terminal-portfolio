@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { cn } from '@/lib/utils';
 import { TextAnimate } from '@/components/magicui/text-animate';
 import { BorderBeam } from '@/components/magicui/border-beam';
 import { Input } from "@/components/ui/input";
