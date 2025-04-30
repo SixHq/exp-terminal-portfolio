@@ -1,170 +1,161 @@
+
+// tailwind.config.ts
 import type { Config } from "tailwindcss";
-import { fontFamily } from "tailwindcss/defaultTheme";
+import plugin from "tailwindcss/plugin";
 
 const config = {
-    darkMode: ["class"], // Enable dark mode based on class
-    content: [
-        './pages/**/*.{ts,tsx}',
-        './components/**/*.{ts,tsx}',
-        './app/**/*.{ts,tsx}',
-        './src/**/*.{ts,tsx}', // Make sure to scan src directory
-        './node_modules/@tremor/**/*.{js,ts,jsx,tsx}', // Path to tremor module
-    ],
-    prefix: "", // No prefix for utility classes
-    theme: {
-        container: {
-            center: true,
-            padding: "2rem",
-            screens: {
-                "2xl": "1400px",
-            },
-        },
-        extend: {
-            colors: {
-                border: "hsl(var(--border))",
-                input: "hsl(var(--input))",
-                ring: "hsl(var(--ring))",
-                background: "hsl(var(--background))",
-                foreground: "hsl(var(--foreground))",
-                // Custom Crypto Palette (Dark Theme Focus)
-                'deep-blue': {
-                    DEFAULT: "hsl(224, 71%, 4%)", // Very dark blue base
-                    light: "hsl(224, 60%, 10%)", // Slightly lighter shade
-                    medium: "hsl(224, 50%, 20%)", // Medium shade
-                },
-                'electric-cyan': {
-                    DEFAULT: "hsl(180, 100%, 50%)", // Bright cyan accent
-                    dark: "hsl(180, 100%, 40%)", // Darker cyan
-                },
-                'vibrant-purple': {
-                    DEFAULT: "hsl(270, 100%, 65%)", // Vibrant purple accent
-                    dark: "hsl(270, 100%, 55%)", // Darker purple
-                },
-                'accent-magenta': "hsl(300, 100%, 60%)", // Secondary accent
-                'light-gray': "hsl(210, 20%, 85%)", // For subtle text/borders
-                'dark-gray': "hsl(215, 15%, 50%)", // For less prominent elements
-
-                primary: {
-                    DEFAULT: "hsl(var(--primary))",
-                    foreground: "hsl(var(--primary-foreground))",
-                },
-                secondary: {
-                    DEFAULT: "hsl(var(--secondary))",
-                    foreground: "hsl(var(--secondary-foreground))",
-                },
-                destructive: {
-                    DEFAULT: "hsl(var(--destructive))",
-                    foreground: "hsl(var(--destructive-foreground))",
-                },
-                muted: {
-                    DEFAULT: "hsl(var(--muted))",
-                    foreground: "hsl(var(--muted-foreground))",
-                },
-                accent: {
-                    DEFAULT: "hsl(var(--accent))", // Use electric-cyan as default accent
-                    foreground: "hsl(var(--accent-foreground))",
-                },
-                popover: {
-                    DEFAULT: "hsl(var(--popover))",
-                    foreground: "hsl(var(--popover-foreground))",
-                },
-                card: {
-                    DEFAULT: "hsl(var(--card))",
-                    foreground: "hsl(var(--card-foreground))",
-                },
-            },
-            borderRadius: {
-                lg: "var(--radius)",
-                md: "calc(var(--radius) - 2px)",
-                sm: "calc(var(--radius) - 4px)",
-            },
-            fontFamily: {
-                sans: ["var(--font-inter)", ...fontFamily.sans], // Primary sans-serif
-                heading: ["var(--font-poppins)", ...fontFamily.sans], // Font for headings
-            },
-            keyframes: {
-                "accordion-down": {
-                    from: { height: "0" },
-                    to: { height: "var(--radix-accordion-content-height)" },
-                },
-                "accordion-up": {
-                    from: { height: "var(--radix-accordion-content-height)" },
-                    to: { height: "0" },
-                },
-                 // Magic UI & Custom Animations
-                "meteor": {
-                    "0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
-                    "70%": { opacity: "1" },
-                    "100%": {
-                    transform: "rotate(215deg) translateX(-500px)",
-                    opacity: "0",
-                    },
-                },
-                "aurora": {
-                    from: { backgroundPosition: "50% 50%, 50% 50%" },
-                    to: { backgroundPosition: "350% 50%, 350% 50%" },
-                },
-                 "shine": {
-                    "from": { backgroundPosition: "200% 0" },
-                    "to": { backgroundPosition: "-200% 0" },
-                },
-                "border-beam": {
-                    "100%": {
-                    "offset-distance": "100%",
-                    },
-                },
-                "grid": {
-                    "0%": { transform: "translateY(-50%)" },
-                    "100%": { transform: "translateY(0)" },
-                },
-                "gradient": {
-                    to: {
-                        backgroundPosition: "var(--gradient-position)",
-                    },
-                },
-                "spin": {
-                    '0%': {
-                        rotate: "0deg",
-                    },
-                    '100%': {
-                        rotate: "360deg",
-                    },
-                },
-                'text-reveal': {
-                    '0%': {
-                        transform: 'translate(0, 100%)',
-                    },
-                    '100%': {
-                        transform: 'translate(0, 0)',
-                    },
-                },
-                "marquee": {
-                    from: { transform: "translateX(0)" },
-                    to: { transform: "translateX(calc(-100% - var(--gap)))" },
-                },
-                "marquee-vertical": {
-                    from: { transform: "translateY(0)" },
-                    to: { transform: "translateY(calc(-100% - var(--gap)))" },
-                },
-            },
-            animation: {
-                "accordion-down": "accordion-down 0.2s ease-out",
-                "accordion-up": "accordion-up 0.2s ease-out",
-                 // Magic UI & Custom Animations
-                "meteor": "meteor 5s linear infinite",
-                "aurora": "aurora 60s linear infinite",
-                "shine": "shine 8s linear infinite",
-                "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
-                "grid": "grid 15s linear infinite",
-                "gradient": "gradient 8s linear infinite",
-                "spin": "spin 4s linear infinite",
-                'text-reveal': 'text-reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s',
-                 "marquee": "marquee var(--duration) linear infinite",
-                "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
-            },
-        },
+  darkMode: ["class"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
+  prefix: "",
+  theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
     },
-    plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+    extend: {
+      colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))", // Near Black
+        foreground: "hsl(var(--foreground))", // Light Text
+        primary: {
+          DEFAULT: "hsl(var(--primary))", // Neon Blue
+          foreground: "hsl(var(--primary-foreground))", // Dark for contrast on neon
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))", // Neon Pink
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))", // Dimmed background elements
+          foreground: "hsl(var(--muted-foreground))", // Dimmed text (e.g., #8892b0)
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))", // Neon Green
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        'dark-navy': '#0a192f',
+        'near-black': '#020617',
+        'neon-blue': '#00f6ff',
+        'neon-pink': '#ff07e6',
+        'neon-green': '#39ff14',
+        'neon-purple': '#bc13fe',
+        'light-text': '#e6f1ff', // Brighter text
+        'dim-text': '#8892b0',   // Dimmer text
+      },
+      fontFamily: {
+        heading: ['Orbitron', 'sans-serif'],
+        body: ['Rajdhani', 'sans-serif'],
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "neon-glow": {
+            '0%, 100%': { opacity: '1' },
+            '50%': { opacity: '0.8' },
+        },
+        "border-beam": {
+            "100%": {
+              "offset-distance": "100%",
+            },
+        },
+         "shine": {
+            "from": { backgroundPosition: '200% 0' },
+            "to": { backgroundPosition: '-200% 0' },
+        },
+        "meteor": {
+          "0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
+          "70%": { opacity: "1" },
+          "100%": {
+            transform: "rotate(215deg) translateX(-500px)",
+            opacity: "0",
+          },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        "neon-glow": "neon-glow 1.5s ease-in-out infinite",
+        "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
+        "shine": "shine 8s linear infinite",
+        "meteor": "meteor 5s linear infinite",
+      },
+      boxShadow: {
+        'neon-blue-sm': '0 0 3px #00f6ff, 0 0 5px #00f6ff',
+        'neon-blue-md': '0 0 5px #00f6ff, 0 0 10px #00f6ff, 0 0 15px #00f6ff',
+        'neon-blue-lg': '0 0 10px #00f6ff, 0 0 20px #00f6ff, 0 0 30px #00f6ff',
+        'neon-pink-sm': '0 0 3px #ff07e6, 0 0 5px #ff07e6',
+        'neon-pink-md': '0 0 5px #ff07e6, 0 0 10px #ff07e6, 0 0 15px #ff07e6',
+        'neon-pink-lg': '0 0 10px #ff07e6, 0 0 20px #ff07e6, 0 0 30px #ff07e6',
+        'neon-green-sm': '0 0 3px #39ff14, 0 0 5px #39ff14',
+        'neon-green-md': '0 0 5px #39ff14, 0 0 10px #39ff14, 0 0 15px #39ff14',
+        'neon-green-lg': '0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 30px #39ff14',
+        'neon-purple-sm': '0 0 3px #bc13fe, 0 0 5px #bc13fe',
+        'neon-purple-md': '0 0 5px #bc13fe, 0 0 10px #bc13fe, 0 0 15px #bc13fe',
+        'neon-purple-lg': '0 0 10px #bc13fe, 0 0 20px #bc13fe, 0 0 30px #bc13fe',
+      },
+    },
+  },
+  plugins: [
+    require("tailwindcss-animate"),
+      plugin(({ theme, addUtilities }) => {
+        const neonUtilities = Object.entries(theme('boxShadow') ?? {})
+          .filter(([key]) => key.startsWith('neon-'))
+          .map(([key, value]) => ({
+            // Utility for applying neon box-shadow
+            [`.${key}`]: {
+              boxShadow: value,
+            },
+            // Utility for applying neon text-shadow (adapted from box-shadow)
+            [`.text-${key}`]: {
+              // Attempt to create a simpler text-shadow from the box-shadow values
+              // This is a basic conversion and might need refinement for complex shadows
+              textShadow: (value as string)
+                            .split(', ')
+                            .map(shadow => shadow.replace(/^(\d+px\s+\d+px)/, '0 0')) // Reset offset to 0 0 for basic glow
+                            .slice(0, 2) // Limit to first two shadow layers for simplicity
+                            .join(', ')
+                            .replace(/0 0 0 0 #0000,/g,''), // Remove potential zero values after conversion attempt
+              // Use the core neon color for the text itself
+              color: theme(`colors.${key.split('-')[1]}.${key.split('-')[2] === 'foreground' ? 'foreground' : 'DEFAULT'}`, theme(`colors.${key.split('-')[1]}`, '#fff')),
+               animation: 'neon-glow 1.5s ease-in-out infinite alternate', // Add subtle pulse
+            },
+          }));
+        addUtilities(neonUtilities);
+      }),
+  ],
 } satisfies Config;
 
 export default config;

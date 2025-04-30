@@ -1,38 +1,50 @@
-import Layout from '@/components/layout/Layout';
-import Header from '@/components/layout/Header';
-import HeroSection from '@/components/sections/HeroSection';
-import SocialProofProblemSolution from '@/components/sections/SocialProofProblemSolution';
-import BenefitsOfferSocialProof from '@/components/sections/BenefitsOfferSocialProof';
-import ConversionSections from '@/components/sections/ConversionSections';
-import Footer from '@/components/layout/Footer'; // Import the new Footer
-import { cn } from '@/lib/utils';
+import React from 'react';
+import { ScrollProgress } from "@/components/magicui/scroll-progress";
+import { SmoothCursor } from "@/components/magicui/smooth-cursor"; // Import SmoothCursor
+import { Header } from "@/components/sections/Header"; // Import the new Header
+import { HeroSection } from "@/components/sections/HeroSection"; // Import the Hero Section
+
+import { SocialProofSection } from "@/components/sections/SocialProofSection"; // Import Social Proof
+import { ProblemPainPointSection } from "@/components/sections/ProblemPainPointSection"; // Import Problem/Pain Point
+import { SkillsSection } from './components/sections/SkillsSection';
+import { BenefitsSection } from './components/sections/BenefitsSection';
+import { ProjectsSection } from './components/sections/ProjectsSection';
+import { ContactSection } from "@/components/sections/ContactSection"; // Import Contact Section
+import { FAQSection } from './components/sections/FAQSection';
+import { ClosingSection } from './components/sections/ClosingSection';
+import { Footer } from './components/sections/Footer';
+
 
 function App() {
   return (
-    <div className="flex flex-col min-h-screen bg-background"> {/* Ensure App covers full height and has base bg */}
-      <Header />
-      {/* Layout now wraps only the main content */}
-      <div className="flex-grow"> {/* Wrap main content area to allow footer to stick */}
-        <Layout className={cn("pt-0")}>
-            <main className="pt-0"> {/* Ensure main has no top padding */}
-                {/* Hero Section */}
-                <HeroSection />
+    
+      <div id="app-container" className="w-full h-full bg-background">
+        {/* Scroll Progress Indicator */}
+        <ScrollProgress className="fixed top-0 left-0 right-0 h-1 z-[60] bg-gradient-to-r from-primary via-accent to-destructive" />
 
-                {/* Social Proof & Problem/Solution Section */}
-                <SocialProofProblemSolution />
+        {/* Header Dock */}
+        <Header />
 
-                {/* Benefits, Offer & Deep Social Proof Section */}
-                <BenefitsOfferSocialProof />
+        <main className="relative z-10 pb-24"> {/* Keep padding-bottom */}
+          {/* Hero Section */}
+          <HeroSection />
+            {/* Social Proof Section */}
+            <SocialProofSection />
 
-                {/* Lead Capture, FAQ, Closing Sections */}
-                <ConversionSections />
+            {/* Problem/Pain Point Section */}
+            <ProblemPainPointSection />
 
-             </main>
-        </Layout>
+            <SkillsSection/>
+            <BenefitsSection/>
+            <ProjectsSection/>
+
+            <ContactSection/>
+            <FAQSection/>
+            <ClosingSection/>
+            <Footer/>
+
+        </main>
       </div>
-      {/* Render the new Footer */}
-       <Footer />
-    </div>
   );
 }
 

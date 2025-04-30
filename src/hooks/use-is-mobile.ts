@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from 'react';
+import { cn } from '@/lib/utils';
 
 const MOBILE_BREAKPOINT = 768; // Example breakpoint (adjust as needed, e.g., based on Tailwind's 'md')
 
