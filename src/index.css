@@ -1,6 +1,98 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Shadcn UI / Custom Base Layer Styles */
+@layer base {
+  :root {
+    /* Define CSS variables based on the Tailwind config */
+    /* Adjust HSL values to match your chosen crypto palette */
+    --background: 224 71% 4%; /* deep-blue */
+    --foreground: 210 20% 98%; /* Near white for text */
+
+    --card: 224 60% 10%; /* deep-blue-light */
+    --card-foreground: 210 20% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 180 100% 45%; /* electric-cyan-dark (adjust saturation/lightness) */
+    --primary-foreground: 224 71% 4%; /* Dark text on primary */
+
+    --secondary: 270 100% 60%; /* vibrant-purple-dark (adjust saturation/lightness) */
+    --secondary-foreground: 210 20% 98%; /* Light text on secondary */
+
+    --muted: 224 50% 20%; /* deep-blue-medium */
+    --muted-foreground: 215 15% 65%; /* dark-gray adjusted */
+
+    --accent: 180 100% 50%; /* electric-cyan */
+    --accent-foreground: 224 71% 4%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 224 50% 25%; /* Slightly lighter border than card */
+    --input: 224 50% 25%;
+    --ring: 180 100% 50%; /* electric-cyan for focus rings */
+
+    --radius: 0.75rem; /* Slightly larger radius */
+
+    /* Font variables */
+    --font-inter: "Inter", sans-serif;
+    --font-poppins: "Poppins", sans-serif;
+  }
+
+  /* Apply dark mode variables */
+  .dark {
+     /* Dark mode variables can be the same if dark is default, or specify overrides */
+    --background: 224 71% 4%;
+    --foreground: 210 20% 98%;
+
+    --card: 224 60% 10%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 180 100% 50%; /* Brighter primary in dark mode */
+    --primary-foreground: 224 71% 4%;
+
+    --secondary: 270 100% 65%; /* Brighter secondary in dark mode */
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 224 50% 20%;
+    --muted-foreground: 215 15% 65%;
+
+    --accent: 180 100% 50%;
+    --accent-foreground: 224 71% 4%;
+
+    --destructive: 0 70% 50%; /* Darker destructive */
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 224 50% 25%;
+    --input: 224 50% 25%;
+    --ring: 180 100% 50%;
+  }
+}
+
+/* Apply base styles */
+@layer base {
+  * {
+    @apply border-border; /* Apply border color variable globally */
+  }
+  body {
+    @apply bg-background text-foreground;
+    @apply font-sans; /* Default font */
+    font-feature-settings: "rlig" 1, "calt" 1; /* Enable common ligatures */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading; /* Use Poppins for headings */
+  }
+}
 
 @layer base {
   .theme {

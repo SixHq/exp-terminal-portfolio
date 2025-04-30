@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+import React from 'react';
+import Layout from '@/components/layout/Layout';
+import Header from '@/components/layout/Header';
+import HeroSection from '@/components/sections/HeroSection';
+import SocialProofProblemSolution from '@/components/sections/SocialProofProblemSolution';
+import BenefitsOfferSocialProof from '@/components/sections/BenefitsOfferSocialProof';
+import ConversionSections from '@/components/sections/ConversionSections';
+import Footer from '@/components/layout/Footer'; // Import the new Footer
+import { cn } from '@/lib/utils';
+
+// Placeholder section component remains the same
+const PlaceholderSection: React.FC<{ id: string; title: string; className?: string }> = ({ id, title, className }) => (
+    <section id={id} className={cn("min-h-[60vh] flex items-center justify-center border-t border-border/20", className)}>
+        <h2 className="text-4xl font-bold text-muted-foreground/50">{title}</h2>
+    </section>
+);
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="flex flex-col min-h-screen bg-background"> {/* Ensure App covers full height and has base bg */}
+      <Header />
+      {/* Layout now wraps only the main content */}
+      <div className="flex-grow"> {/* Wrap main content area to allow footer to stick */}
+        <Layout className={cn("pt-0")}>
+            <main className="pt-0"> {/* Ensure main has no top padding */}
+                {/* Hero Section */}
+                <HeroSection />
+
+                {/* Social Proof & Problem/Solution Section */}
+                <SocialProofProblemSolution />
+
+                {/* Benefits, Offer & Deep Social Proof Section */}
+                <BenefitsOfferSocialProof />
+
+                {/* Lead Capture, FAQ, Closing Sections */}
+                <ConversionSections />
+
+             </main>
+        </Layout>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      {/* Render the new Footer */}
+       <Footer />
+    </div>
+  );
 }
 
-export default App
+export default App;
