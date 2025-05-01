@@ -38,15 +38,12 @@ export function ClosingSection() {
     <section id="closing" className="relative w-full flex items-center justify-center py-24 md:py-32 bg-gradient-to-b from-secondary/10 via-primary/5 to-background">
         {/* Background Elements */}
         <RetroGrid className="inset-0 z-0 opacity-50 dark:opacity-15" angle={75} cellSize={40} />
-         <Meteors number={40} minDelay={0.3} maxDelay={1.8} className="absolute inset-0 z-0" />
-         <div className="absolute inset-0 z-10 bg-gradient-to-t from-background via-background/50 to-transparent pointer-events-none" />
+         <Meteors number={10} minDelay={0.3} maxDelay={1.8} className="absolute inset-0 z-0" /> {/* Reduced number from 40 to 10 */}
 
 
       {/* Content Container */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+       
         className="container mx-auto px-4 text-center relative z-20"
       >
          {/* Value Proposition */}
@@ -73,10 +70,8 @@ export function ClosingSection() {
         <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ type: "spring", stiffness: 150, damping: 15, delay: 0.6 }}
             viewport={{ once: true }}
         >
-             <CoolMode>
                 <a href="#contact">
                      <ShimmerButton
                         className="shadow-xl shadow-accent/40 px-8 py-3 md:px-10 md:py-4 text-lg md:text-xl" // Larger button
@@ -84,13 +79,10 @@ export function ClosingSection() {
                         background="hsl(var(--accent))"
                         borderRadius="0.75rem" // Slightly larger radius
                     >
-                        <span className="whitespace-pre-wrap text-center font-semibold leading-none tracking-tight text-accent-foreground flex items-center justify-center">
-                            Initiate Contact
-                            <ArrowRightIcon />
-                        </span>
-                    </ShimmerButton>
+                           Initiate Contact
+                          
+                     </ShimmerButton>
                 </a>
-             </CoolMode>
         </motion.div>
       </motion.div>
     </section>

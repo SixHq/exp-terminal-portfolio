@@ -40,7 +40,7 @@ function App() {
 
             <ContactSection/>
             <FAQSection/>
-            <ClosingSection/>
+            
             <Footer/>
 
         </main>

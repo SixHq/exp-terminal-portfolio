@@ -121,14 +121,14 @@ export function SocialProofSection() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="relative flex w-full flex-col items-center justify-center overflow-hidden mb-20"
+            className="relative flex w-full flex-col items-center justify-center mb-20"
          >
-            <Marquee pauseOnHover className="[--duration:40s] [--gap:1rem]">
+            <Marquee pauseOnHover className="[--duration:40s]">
                 {firstRowTestimonials.map((testimonial) => (
                 <TestimonialCard key={testimonial.name + "-1"} {...testimonial} />
                 ))}
             </Marquee>
-            <Marquee reverse pauseOnHover className="[--duration:40s] [--gap:1rem] mt-4">
+            <Marquee reverse pauseOnHover className="[--duration:40s]">
                 {secondRowTestimonials.map((testimonial) => (
                 <TestimonialCard key={testimonial.name + "-2"} {...testimonial} />
                 ))}
