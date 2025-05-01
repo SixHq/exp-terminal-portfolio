@@ -1,15 +1,31 @@
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" /> <!-- Consider replacing with a custom neon favicon -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" /> <!-- Replace with DevMode favicon if available -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Neon Nexus Gaming Community</title> <!-- More engaging title -->
-    <meta name="description" content="Join the Neon Nexus Gaming Community - Connect, Compete, Conquer."> <!-- Added description -->
+    <title>DevMode - Visualize. Inspect. Code.</title>
+    <!-- Link to Google Fonts (Example: Inter) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+      // Add dark mode preference check if needed
+      (function() {
+        const preference = window.localStorage.getItem('theme') || 'system';
+        if (preference === 'dark' || (preference === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+    <style>
+      /* Define font variables */
+      :root {
+        --font-sans: 'Inter', sans-serif;
+        /* --font-mono: 'Your Mono Font', monospace; */ /* Uncomment if needed */
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>

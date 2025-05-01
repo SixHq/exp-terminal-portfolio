@@ -3,155 +3,131 @@
 /* Import Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Rajdhani:wght@300;400;500;600;700&display=swap');
 
-/* Tailwind Directives */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Base Layer Styles */
+/* Global styles and Shadcn UI variables */
 @layer base {
   :root {
-    --background: 224 71.4% 4.1%; /* Near Black: #020617 */
-    --foreground: 210 20% 98%; /* Light Text: #e6f1ff */
+    /* DevMode Color Mapping to Shadcn Vars (Example) */
+    --background: 240 10% 98%; /* map to neutral-off-white #FAFAFA */
+    --foreground: 240 10% 3.9%; /* map to rich-black #0A0A0A for text */
 
-    --card: 224 71.4% 4.1%;
-    --card-foreground: 210 20% 98%;
+    /* Map other Shadcn vars, using DevMode colors */
+    --card: 240 10% 98%; /* #FAFAFA */
+    --card-foreground: 240 10% 3.9%; /* #0A0A0A */
+    --popover: 240 10% 98%; /* #FAFAFA */
+    --popover-foreground: 240 10% 3.9%; /* #0A0A0A */
 
-    --popover: 224 71.4% 4.1%;
-    --popover-foreground: 210 20% 98%;
+    /* Primary can be an accent like electric-blue */
+    --primary: 197 100% 47%; /* #00AEEF */
+    --primary-foreground: 210 40% 98%; /* Contrast for primary */
 
-    --primary: 181 100% 50%; /* Neon Blue: #00f6ff */
-    --primary-foreground: 224 71.4% 4.1%; /* Dark Text for contrast */
+    /* Secondary can be another neutral or light accent */
+    --secondary: 276 66% 90%; /* light-lavender #E8D9F0 */
+    --secondary-foreground: 276 100% 17%; /* deep-plum #4B0055 for contrast */
 
-    --secondary: 314 100% 52%; /* Neon Pink: #ff07e6 */
-    --secondary-foreground: 224 71.4% 4.1%; /* Dark Text for contrast */
+    /* Muted usually slightly off background */
+    --muted: 80 100% 91%; /* pastel-yellow-green #F1FFD4 */
+    --muted-foreground: 240 5% 45%; /* A darker neutral gray */
 
-    --accent: 108 100% 54%; /* Neon Green: #39ff14 */
-    --accent-foreground: 224 71.4% 4.1%; /* Dark Text for contrast */
+    /* Accent should be vibrant */
+    --accent: 197 100% 47%; /* electric-blue #00AEEF */
+    --accent-foreground: 210 40% 98%; /* Contrast for accent */
 
-    --muted: 223 47.1% 11.2%; /* Slightly Lighter Dark: #0a192f */
-    --muted-foreground: 215 27.9% 61.2%; /* Dim Text: #8892b0 */
+    /* Destructive usually red/orange */
+    --destructive: 0 84.2% 60.2%; /* Default Shadcn red */
+    --destructive-foreground: 210 40% 98%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 20% 98%;
+    --border: 240 6% 90%; /* A light gray border */
+    --input: 240 6% 90%; /* Input border */
+    --ring: 197 100% 47%; /* Ring focus often matches accent/primary */
 
-    --border: 215 27.9% 27.2%; /* Dim border: #3b4a6b */
-    --input: 215 27.9% 27.2%;
-    --ring: 181 100% 50%; /* Neon Blue for rings */
-
-    --radius: 0.5rem;
+    --radius: 0.5rem; /* Default border radius */
   }
 
-  .theme {
-    --animate-marquee: marquee var(--duration) infinite linear;
-    --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite
-  ;
-    --animate-orbit: orbit calc(var(--duration)*1s) linear infinite;
-    --animate-shine: shine var(--duration) infinite linear;
-    --animate-meteor: meteor 5s linear infinite;
-    --animate-background-position-spin: background-position-spin 3000ms infinite alternate;
-    --animate-line-shadow: line-shadow 15s linear infinite;
-    --animate-aurora: aurora 8s ease-in-out infinite alternate;
-    --animate-shiny-text: shiny-text 8s infinite;
-    --animate-gradient: gradient 8s linear infinite;
-    --rainbow: rainbow var(--speed, 2s) infinite linear;
-    --animate-shimmer-slide: shimmer-slide var(--speed) ease-in-out infinite alternate;
-    --animate-spin-around: spin-around calc(var(--speed) * 2) infinite linear;
-    --animate-pulse: pulse var(--duration) ease-out infinite;
-    --animate-rippling: rippling var(--duration) ease-out;
-    --animate-grid: grid 15s linear infinite;
-    --animate-ripple: ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite}
-  :root {
-    --color-1: oklch(66.2% 0.225 25.9);
-    --color-2: oklch(60.4% 0.26 302);
-    --color-3: oklch(69.6% 0.165 251);
-    --color-4: oklch(80.2% 0.134 225);
-    --color-5: oklch(90.7% 0.231 133)
-  }
   .dark {
-    --color-1: oklch(66.2% 0.225 25.9);
-    --color-2: oklch(60.4% 0.26 302);
-    --color-3: oklch(69.6% 0.165 251);
-    --color-4: oklch(80.2% 0.134 225);
-    --color-5: oklch(90.7% 0.231 133)
+    /* Dark Mode Palette */
+    --background: 0 0% 4%; /* rich-black #0A0A0A */
+    --foreground: 210 40% 98%; /* Light text */
+
+    --card: 0 0% 4%; /* rich-black */
+    --card-foreground: 210 40% 98%;
+    --popover: 0 0% 4%; /* rich-black */
+    --popover-foreground: 210 40% 98%;
+
+    /* Primary can remain the same if vibrant enough, or adjust */
+    --primary: 197 100% 55%; /* Slightly brighter blue */
+    --primary-foreground: 0 0% 4%; /* Dark text on bright blue */
+
+    /* Secondary needs contrast */
+    --secondary: 276 100% 17%; /* deep-plum #4B0055 */
+    --secondary-foreground: 276 66% 90%; /* light-lavender text */
+
+    /* Muted darker version */
+    --muted: 276 100% 10%; /* Darker plum/black */
+    --muted-foreground: 210 40% 70%; /* Lighter gray */
+
+    /* Accent remains vibrant */
+    --accent: 197 100% 55%; /* electric-blue */
+    --accent-foreground: 0 0% 4%; /* Dark text on accent */
+
+    /* Destructive slightly adjusted */
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 40% 20%; /* Darker border */
+    --input: 210 40% 20%;
+    --ring: 197 100% 55%; /* Brighter ring */
   }
 
-  /* We assume dark mode is default via <html class="dark"> */
-  .dark {
-    /* Dark theme variables are already set above */
-  }
-
-  /* Optional Light theme overrides if needed later */
-  /*
-  :root:not(.dark) {
-     --background: 0 0% 100%;
-     --foreground: 224 71.4% 4.1%;
-     --card: 0 0% 100%;
-     --card-foreground: 224 71.4% 4.1%;
-     ... and so on
-  }
-  */
-
-  * {
-    @apply border-border;
-  }
-
-   html {
-      scroll-behavior: smooth; /* Enable smooth scrolling */
-   }
-
-
+  /* Base body styles */
   body {
     @apply bg-background text-foreground;
-    @apply font-body; /* Default body font */
-    min-height: 100vh;
-    text-rendering: optimizeLegibility;
+    font-family: var(--font-sans), sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    transition: background-color 0.5s ease-in-out; /* Subtle background transition */
   }
 
+  /* Base typography - use theme('fontSize') for consistency */
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading; /* Default heading font */
+    @apply font-bold tracking-tight;
   }
 
-  /* Add custom scrollbar styling for a more thematic look */
-    ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px; /* Add height for horizontal scrollbars */
-    }
+  h1 { @apply text-headline-lg; } /* ~48px */
+  h2 { @apply text-headline-md; } /* ~40px */
+  /* Add h3-h6 styles as needed */
 
-    ::-webkit-scrollbar-track {
-      background: hsl(var(--background));
-      border-radius: 4px;
-    }
+  p {
+    @apply text-body-md lg:text-body-lg; /* 16-18px */
+  }
 
-    ::-webkit-scrollbar-thumb {
-      background: hsl(var(--primary) / 0.5); /* Semi-transparent Neon Blue */
-      border-radius: 4px;
-       border: 1px solid hsl(var(--border) / 0.5); /* Add subtle border */
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: hsl(var(--primary)); /* Full Neon Blue on hover */
-       border: 1px solid hsl(var(--primary));
-    }
-
-    /* Style the corner where vertical and horizontal scrollbars meet */
-    ::-webkit-scrollbar-corner {
-       background: hsl(var(--background));
-    }
-
+  /* Ensure clean layout */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 }
 
+/* Custom component layer styles if needed */
 @layer components {
-  /* Add subtle animated background gradient */
- /* This could be applied to body or specific sections later */
-  .animated-background-transition {
-    background: linear-gradient(-45deg, hsl(var(--background)), hsl(var(--muted)), hsl(var(--background)), #1a0a2e); /* Added deep purple hint */
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-  }
+  /* Example: .btn class if not using Shadcn/Magic buttons */
+  /* .btn {
+      @apply px-4 py-2 rounded bg-primary text-primary-foreground;
+  } */
+}
+
+/* Custom utility classes if needed */
+@layer utilities {
+  /* Example: .text-balance for text wrapping */
+   .text-balance {
+      text-wrap: balance;
+   }
 }
 
 @keyframes gradientBG {

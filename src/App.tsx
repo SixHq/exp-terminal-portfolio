@@ -1,50 +1,36 @@
+
 import React from 'react';
-import { ScrollProgress } from "@/components/magicui/scroll-progress";
-import { SmoothCursor } from "@/components/magicui/smooth-cursor"; // Import SmoothCursor
-import { Header } from "@/components/sections/Header"; // Import the new Header
-import { HeroSection } from "@/components/sections/HeroSection"; // Import the Hero Section
-
-import { SocialProofSection } from "@/components/sections/SocialProofSection"; // Import Social Proof
-import { ProblemPainPointSection } from "@/components/sections/ProblemPainPointSection"; // Import Problem/Pain Point
-import { SkillsSection } from './components/sections/SkillsSection';
-import { BenefitsSection } from './components/sections/BenefitsSection';
-import { ProjectsSection } from './components/sections/ProjectsSection';
-import { ContactSection } from "@/components/sections/ContactSection"; // Import Contact Section
-import { FAQSection } from './components/sections/FAQSection';
-import { ClosingSection } from './components/sections/ClosingSection';
-import { Footer } from './components/sections/Footer';
-
+import { cn } from "@/lib/utils"; // Assuming utils file exists for Shadcn
+import HeroSection from './components/sections/HeroSection';
+import FeaturesSection from './components/sections/FeaturesSection';
+import WalkthroughSection from './components/sections/WalkthroughSection';
+import DeveloperToolsSection from './components/sections/DeveloperToolsSection';
+import TeamWorkflowSection from './components/sections/TeamWorkflowSection';
+import CtaSection from './components/sections/CtaSection';
+import Footer from './components/sections/Footer'; // Import the Footer
 
 function App() {
   return (
-    
-      <div id="app-container" className="w-full h-full bg-background">
-        {/* Scroll Progress Indicator */}
-        <ScrollProgress className="fixed top-0 left-0 right-0 h-1 z-[60] bg-gradient-to-r from-primary via-accent to-destructive" />
+    <main className={cn(
+      "flex min-h-screen flex-col items-center", // Let sections stack naturally
+      "font-sans bg-background"
+    )}>
+       <div className="w-full">
+         {/* Header/Dock Component Placeholder - To be added later */}
+         {/* <Header /> */}
 
-        {/* Header Dock */}
-        <Header />
+         {/* Render Sections */}
+         <HeroSection />
+         <FeaturesSection />
+         <WalkthroughSection />
+         <DeveloperToolsSection />
+         <TeamWorkflowSection />
+         <CtaSection />
 
-        <main className="relative z-10 pb-24"> {/* Keep padding-bottom */}
-          {/* Hero Section */}
-          <HeroSection />
-            {/* Social Proof Section */}
-            <SocialProofSection />
-
-            {/* Problem/Pain Point Section */}
-            <ProblemPainPointSection />
-
-            <SkillsSection/>
-            <BenefitsSection/>
-            <ProjectsSection/>
-
-            <ContactSection/>
-            <FAQSection/>
-            
-            <Footer/>
-
-        </main>
-      </div>
+         {/* Render Footer */}
+         <Footer />
+       </div>
+    </main>
   );
 }
 
