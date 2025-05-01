@@ -1,36 +1,37 @@
 
 import React from 'react';
-import { cn } from "@/lib/utils"; // Assuming utils file exists for Shadcn
-import HeroSection from './components/sections/HeroSection';
-import FeaturesSection from './components/sections/FeaturesSection';
-import WalkthroughSection from './components/sections/WalkthroughSection';
-import DeveloperToolsSection from './components/sections/DeveloperToolsSection';
-import TeamWorkflowSection from './components/sections/TeamWorkflowSection';
-import CtaSection from './components/sections/CtaSection';
-import Footer from './components/sections/Footer'; // Import the Footer
+import MainLayout from './components/layout/MainLayout';
+import Footer from './components/layout/Footer'; // Import the Footer component
+import { RetroGrid } from '@/components/magicui/retro-grid';
+import { SmoothCursor } from "@/components/magicui/smooth-cursor";
+import { cn } from "@/lib/utils";
 
 function App() {
   return (
-    <main className={cn(
-      "flex min-h-screen flex-col items-center", // Let sections stack naturally
-      "font-sans bg-background"
-    )}>
-       <div className="w-full">
-         {/* Header/Dock Component Placeholder - To be added later */}
-         {/* <Header /> */}
+    <div className={cn(
+        "relative min-h-screen bg-background text-foreground font-mono",
+        "overflow-x-hidden" // Prevent horizontal overflow
+        )}>
+      {/* Background Grid */}
+      <RetroGrid className="fixed inset-0 z-0 opacity-15" />
 
-         {/* Render Sections */}
-         <HeroSection />
-         <FeaturesSection />
-         <WalkthroughSection />
-         <DeveloperToolsSection />
-         <TeamWorkflowSection />
-         <CtaSection />
+      {/* Smooth Cursor */}
+      <SmoothCursor
+          cursor={<div className="w-3 h-3 rounded-full bg-terminal-green mix-blend-difference pointer-events-none" />}
+        
+       />
 
-         {/* Render Footer */}
-         <Footer />
-       </div>
-    </main>
+      {/* Main Layout (contains Sidebar and MainContent) */}
+      {/* z-10 ensures layout is above the grid */}
+      <div className="relative z-10">
+        <MainLayout />
+      </div>
+
+      {/* Footer Component */}
+      {/* z-20 ensures footer is above grid and potentially content, aligns with sidebar z-index */}
+
+
+    </div>
   );
 }
 

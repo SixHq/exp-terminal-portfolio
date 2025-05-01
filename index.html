@@ -1,31 +1,15 @@
 
+<!-- index.html -->
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" /> <!-- Replace with DevMode favicon if available -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DevMode - Visualize. Inspect. Code.</title>
-    <!-- Link to Google Fonts (Example: Inter) -->
+    <title>Terminal Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <script>
-      // Add dark mode preference check if needed
-      (function() {
-        const preference = window.localStorage.getItem('theme') || 'system';
-        if (preference === 'dark' || (preference === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-          document.documentElement.classList.add('dark');
-        }
-      })();
-    </script>
-    <style>
-      /* Define font variables */
-      :root {
-        --font-sans: 'Inter', sans-serif;
-        /* --font-mono: 'Your Mono Font', monospace; */ /* Uncomment if needed */
-      }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
   </head>
   <body>
     <div id="root"></div>
