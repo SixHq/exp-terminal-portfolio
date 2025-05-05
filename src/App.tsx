@@ -5,6 +5,7 @@ import Footer from './components/layout/Footer'; // Import the Footer component
 import { RetroGrid } from '@/components/magicui/retro-grid';
 import { SmoothCursor } from "@/components/magicui/smooth-cursor";
 import { cn } from "@/lib/utils";
+import Head from './components/head/head';
 
 function App() {
   return (
