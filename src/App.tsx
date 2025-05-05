@@ -16,7 +16,7 @@ function App() {
       <RetroGrid className="fixed inset-0 z-0 opacity-15" />
 
       {/* Smooth Cursor */}
-      <SmoothCursorr
+      <SmoothCursor
           cursor={<div className="w-3 h-3 rounded-full bg-terminal-green mix-blend-difference pointer-events-none" />}
         
        />
