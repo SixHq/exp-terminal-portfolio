@@ -3,7 +3,7 @@ import React from 'react';
 import MainLayout from './components/layout/MainLayout';
 import Footer from './components/layout/Footer'; // Import the Footer component
 import { RetroGrid } from '@/components/magicui/retro-grid';
-import { SmoothCursor } from "@/components/magicui/smooth-cursor";
+//import { SmoothCursor } from "@/components/magicui/smooth-cursor";
 import { cn } from "@/lib/utils";
 
 function App() {
