@@ -5,6 +5,7 @@ import Footer from './components/layout/Footer'; // Import the Footer component
 import { RetroGrid } from '@/components/magicui/retro-grid';
 import { SmoothCursor } from "@/components/magicui/smooth-cursor";
 import { cn } from "@/lib/utils";
+import Head from "./components/head/head";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         "overflow-x-hidden" // Prevent horizontal overflow
         )}>
       {/* Background Grid */}
+      <Head/>
       <RetroGrid className="fixed inset-0 z-0 opacity-15" />
 
       {/* Smooth Cursor */}
