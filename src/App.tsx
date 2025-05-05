@@ -14,6 +14,7 @@ function App() {
         "overflow-x-hidden" // Prevent horizontal overflow
         )}>
       {/* Background Grid */}
+      <Head/>
       <RetroGrid className="fixed inset-0 z-0 opacity-15" />
 
       {/* Smooth Cursor */}
