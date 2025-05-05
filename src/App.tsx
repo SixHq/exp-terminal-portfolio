@@ -1,7 +1,7 @@
 
 import React from 'react';
 import MainLayout from './components/layout/MainLayout';
-import Footer from './components/layout/Footerr'; // Import the Footer component
+import Footer from './components/layout/Footer'; // Import the Footer component
 import { RetroGrid } from '@/components/magicui/retro-grid';
 import { SmoothCursor } from "@/components/magicui/smooth-cursor";
 import { cn } from "@/lib/utils";
@@ -16,7 +16,7 @@ function App() {
       <RetroGrid className="fixed inset-0 z-0 opacity-15" />
 
       {/* Smooth Cursor */}
-      <SmoothCursor
+      <SmoothCursorr
           cursor={<div className="w-3 h-3 rounded-full bg-terminal-green mix-blend-difference pointer-events-none" />}
         
        />
